@@ -1,0 +1,18 @@
+{
+   "name": "Create AgileZen Story from ZenDesk Ticket",
+   "version": "1.0.0",
+   "manifest_version": 1,
+   "description": "Creates an AgileZen story from the ZenDesk ticket in question.",
+   "options_page": "options.html",
+   "browser_action": {
+     "default_icon": "icon.png"
+   },
+   "permissions": [
+       "http://*.zendesk.com/tickets/*"
+   ],
+   "content_scripts": [{
+       "matches": ["*.zendesk.com/tickets/*"],
+       "css": ["style.css"],
+       "js": ["jquery-2.0.3.min.js", "script.js"]
+   }]
+}
