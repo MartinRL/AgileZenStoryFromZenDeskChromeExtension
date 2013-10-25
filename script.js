@@ -9,6 +9,14 @@ function setOptions(continuation) {
         });
 };
 
+function setAjaxDefaults(continuation) {
+    $.ajaxSetup({
+        xhrFields: { withCredentials: true },
+        beforeSend: function (xhr) { xhr.setRequestHeader("X-Zen-ApiKey", options.api_key); },
+    });
+    continuation();
+};
+
 function createAgileZenStory() {
     alert("api key: " + options.api_key + ", board#: " + options.board_number);
 }
@@ -19,4 +27,4 @@ function addButton() {
     $("#create-agilezen-story-button").click(createAgileZenStory);
 }
 
-setOptions(addButton);
+setOptions(setAjaxDefaults(addButton));
