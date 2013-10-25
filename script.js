@@ -28,3 +28,8 @@ function addButton() {
 }
 
 setOptions(setAjaxDefaults(addButton));
+
+chrome.storage.onChanged.addListener(function () {
+    setOptions(function () {
+    });
+});
