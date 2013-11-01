@@ -9,6 +9,7 @@
    },
    "permissions": [
        "*://*.zendesk.com/tickets/*",
+       "*://*.agilezen.com/api/*",
        "storage"
    ],
    "content_scripts": [{
