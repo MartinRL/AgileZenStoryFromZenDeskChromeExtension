@@ -8,14 +8,13 @@
      "default_icon": "icon.png"
    },
    "permissions": [
-       "*://*.zendesk.com/tickets/*",
-       "*://helpdesk.mvno.dk/tickets/*",
+       "*://*/tickets*",
+       "*://*/agent*",
        "*://*.agilezen.com/api/*",
        "storage"
    ],
    "content_scripts": [{
-       "matches": ["*://*.zendesk.com/tickets/*"],
-       "matches": ["*://helpdesk.mvno.dk/tickets/*"],
+       "matches": ["*://*/tickets*", "*://*/agent*"],
        "css": ["style.css"],
        "js": ["jquery-2.0.3.min.js", "script.js"]
    }]
