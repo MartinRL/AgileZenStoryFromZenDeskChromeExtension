@@ -21,7 +21,8 @@ function createAgileZenStory() {
         owner: options.user_name,
         text: isOldUI() ? $('#ticket_subject').val() : $('.editable').first().children().first().val(),
         details: 'HD-sag: ' + location.href + '\n\r\n\r**Hvilke forretningsområder berøres?**\n\rF.eks. ”Opsætningsfejl har medført at kunder på Bibob Fri tale – 5 GB ikke har fået WiMP. Derfor skal vi pålægge tilvalgsydelsen med WiMP på disse kunder”. Eller knap xxx eller funktionalitet yyy fejler/virker ikke.\n\r\n\r\n\r**Problemet der skal løses**\n\r * DB-sager. Kunder der skal undersøges, div. Udtræk vi ikke selv kan strikke sammen, eller updates/inserts/deletes af database-indhold.\n\r * Systemfejl. Fejl i systemets funktioner. Knapper der ikke virker, services der ikke behandler kunderne korrekt, nedbrud, fejlbeskeder m.v.\n\r\n\r**Tillægsinformation**\n\rHvis man allerede har et script/screen dump eller andet der kan opsummere problemet/finde de berørte kunder eller belyser problemet, så er det en god hjælp at skrive/vedhæfte det til udvikleren. Så har man et udgangspunkt for at se, så man er enige om hvad problemet er eller hvem der er de berørte kunder.\n\r\n\r**Test**F.eks. ”Stikprøvekontrol af de berørte kunder eller funktionel test af eventuelle implementeret løsninger. Ved scripts kan man f.eks. validere af det totale antal berørte kunder, at der bør være ca. 150.”\n\r\n\r**Forventet resultat**\n\rHvad er det ønskede slutresultat, hvor mange kunder berøres samt mulig tilstand, eller en beskrivelse af hvad forretningen forventer af denne rettelse.',
-        tags: [ 'slack' ]
+        phase: { "id": 31790 },
+        tags: ['slack']
     });
     
     $.ajax({
