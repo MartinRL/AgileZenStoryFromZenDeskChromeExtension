@@ -11,6 +11,7 @@
        "*://*/tickets*",
        "*://*/agent*",
        "*://*.agilezen.com/api/*",
+       "*://mvno.zendesk.com/api/v2/tickets/*",
        "storage"
    ],
    "content_scripts": [{
