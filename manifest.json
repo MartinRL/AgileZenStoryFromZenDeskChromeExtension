@@ -1,6 +1,6 @@
 {
    "name": "Create AgileZen Story from ZenDesk Ticket",
-   "version": "2.1.0",
+   "version": "2.2.0",
    "manifest_version": 2,
    "description": "Creates an AgileZen story from the ZenDesk ticket in question.",
    "options_page": "options.html",
