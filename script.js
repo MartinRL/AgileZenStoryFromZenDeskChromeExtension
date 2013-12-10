@@ -33,10 +33,42 @@ function createAgileZenStory() {
         })
         .success(function(response) {
             $("#createAgilezenStatus").html('The story was created succesfully, and can be found <a href="https://agilezen.com/project/' + options.board_number + '/story/' + response.id + '" target="_blank">here.</a>');
+
+            addZenDeskComment('https://agilezen.com/project/' + options.board_number + '/story/' + response.id);
         })
         .error(function (event, jqxhr, settings, exception) {
             alert("event: " + event + ", jqxhr: " + jqxhr + ", settings: " + settings + ", exception: " + exception + ", data: " + data);
         });
+}
+
+function addZenDeskComment(storyUrl) {
+    if (options.zendesk_email === undefined || options.zendesk_password === undefined) {
+        $("#createAgilezenStatus").append("<span>Can't add comment to this ticket due to missing ZenDesk credentials. Please, add the missing data <a href='" + chrome.extension.getURL("options.html") + "' target='_blank'>here</a>, and try again.</span>");
+
+        return;
+    }
+    
+    var comment = JSON.stringify({
+        ticket: {
+            "comment": {
+                "public": false,
+                "body": 'En AgileZen-story er blevet oprettet her: ' + storyUrl
+            }
+        }
+    });
+    
+    $.ajax({
+        type: 'PUT',
+        url: 'https://mvno.zendesk.com/api/v2/tickets/6155.json',
+        headers: {
+            "Authorization": "Basic " + window.btoa(options.zendesk_email + ":" + options.zendesk_password),
+            "Content-Type": "application/json",
+        },
+        data: comment
+    })
+    /*.error(function (event, jqxhr, settings, exception) {
+        alert("event: " + event + ", jqxhr: " + jqxhr + ", settings: " + settings + ", exception: " + exception + ", comment: " + comment);
+    })*/;
 }
 
 function setAgileZenApiUrl() {
